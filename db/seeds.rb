@@ -1,105 +1,79 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 Movie.create!([
   {
-    title: 'Iron Man',
-    description: 
-    %{
-      When wealthy industrialist Tony Stark is forced to build an 
-      armored suit after a life-threatening incident, he ultimately 
-      decides to use its technology to fight against evil.
-    }.squish,
-    image_file_name: 'ironman.jpg',
-    cast: 'Robert Downey Jr., Gwyneth Paltrow and Terrence Howard',
-    released_on: "2008-05-02",
-    duration: '126 min',
-    director: 'Jon Favreau',
-    rating: 'PG-13',
-    total_gross: 318_412_101
-  },
-  {
-    title: 'Superman',
-    description: 
-    %{
-      An alien orphan is sent from his dying planet to Earth, where 
-      he grows up to become his adoptive home's first and greatest 
-      super-hero.
-    }.squish,
-    image_file_name: 'superman.jpg',
-    cast: 'Christopher Reeve, Margot Kidder and Gene Hackman',
-    released_on: "1978-12-15",
-    duration: '143 min',
-    director: 'Richard Donner',
-    rating: 'PG',
-    total_gross: 134_218_018
-  },
-  {
-    title: 'Spider-Man',
-    description: 
-    %{
-      When bitten by a genetically modified spider, a nerdy, shy, and 
-      awkward high school student gains spider-like abilities that he 
-      eventually must use to fight evil as a superhero after tragedy 
-      befalls his family.
-    }.squish,
-    image_file_name: 'spiderman.jpg',
-    cast: 'Tobey Maguire, Kirsten Dunst and Willem Dafoe',
-    released_on: "2002-05-03",
-    duration: '121 min',
-    director: 'Sam Raimi',
-    rating: 'PG-13',
-    total_gross: 403_706_375
-  },
-  {
-    title: 'Batman',
-    description: 
-    %{
-      The Dark Knight of Gotham City begins his war on crime with his 
-      first major enemy being the clownishly homicidal Joker.
-    }.squish,
-    image_file_name: 'batman.jpg',
-    cast: 'Michael Keaton, Jack Nicholson and Kim Basinger',
-    released_on: "1989-06-23",
-    duration: '126 min',
-    director: 'Tim Burton',
-    rating: 'PG-13',
-    total_gross: 251_188_924
-  },
-  {
-    title: "Catwoman",
-    description: 
-    %{
-      Patience Philips seems destined to spend her life apologizing for taking up space. 
-      Despite her artistic ability&mdash;she has a more than respectable career as a graphic 
-      designer.
-    }.squish,
-    image_file_name: "catwoman.jpg",
-    cast: "Halle Berry, Sharon Stone and Benjamin Bratt",
-    released_on: "2004-07-23",
-    duration: "101 min",
-    director: "Jean-Christophe 'Pitof' Comar",
+    title: "Iron Man",
     rating: "PG-13",
-    total_gross: 40200000.00
+    total_gross: 318412101.00,
+    description: "Tony Stark builds an armored suit to fight the throes of evil",
+    released_on: "2008-05-02",
+    cast: "#{Faker::GameOfThrones.character}, #{Faker::GameOfThrones.character}, #{Faker::GameOfThrones.character}",
+    director: Faker::FamilyGuy.character,
+    duration: "#{rand(120..200)} minutes",
+    image_file_name: Faker::Avatar.image
   },
   {
-    title: 'Batman vs. Godzilla',
-    description: 
-    %{
-      An epic battle between The Caped Crusader and the fire-breathing dinosaur Gojira.
-      Hang on to your popcorn, kids!
-    }.squish,
-    image_file_name: 'batman-vs-godzilla.jpg',
-    cast: 'Bruce Wayne, Gojira',
-    released_on: 10.days.from_now,
-    duration: '211 min',
-    director: 'Ishiro Honda',
-    rating: 'PG-13',
-    total_gross: 387_623_910
+    title: "Superman",
+    rating: "PG",
+    total_gross: 134218018.00,
+    description: "Clark Kent grows up to be the greatest super-hero",
+    released_on: "1978-12-15",
+    cast: "#{Faker::GameOfThrones.character}, #{Faker::GameOfThrones.character}, #{Faker::GameOfThrones.character}",
+    director: Faker::FamilyGuy.character,
+    duration: "#{rand(120..200)} minutes",
+    image_file_name: Faker::Avatar.image
+  },
+  {
+    title: "Spider-Man",
+    rating: "PG-13",
+    total_gross: 403706375.00,
+    description: "Peter Parker gets bit by a genetically modified spider",
+    released_on: "2002-05-03",
+    cast: "#{Faker::GameOfThrones.character}, #{Faker::GameOfThrones.character}, #{Faker::GameOfThrones.character}",
+    director: Faker::FamilyGuy.character,
+    duration: "#{rand(120..200)} minutes",
+    image_file_name: Faker::Avatar.image
+  },
+  {
+    title: "Hitch",
+    rating: "PG",
+    total_gross: 30000000.00,
+    description: "Wow, there's not much I can say about this movie besides how amazing it is. Great cast, great writing, just amazing.",
+    released_on: "2006-03-23",
+    cast: "#{Faker::GameOfThrones.character}, #{Faker::GameOfThrones.character}, #{Faker::GameOfThrones.character}",
+    director: Faker::FamilyGuy.character,
+    duration: "#{rand(120..200)} minutes",
+    image_file_name: Faker::Avatar.image
+  },
+  {
+    title: "National Treasure",
+    rating: "PG-13",
+    total_gross: 300000.00,
+    description: "Pretty Good",
+    released_on: "2009-09-23",
+    cast: "#{Faker::GameOfThrones.character}, #{Faker::GameOfThrones.character}, #{Faker::GameOfThrones.character}",
+    director: Faker::FamilyGuy.character,
+    duration: "#{rand(120..200)} minutes",
+    image_file_name: Faker::Avatar.image
+  },
+  {
+    title: "Fired Up!",
+    rating: "R",
+    total_gross: 900060.00,
+    description: "SO GOOD",
+    released_on: "2012-02-23",
+    cast: "#{Faker::GameOfThrones.character}, #{Faker::GameOfThrones.character}, #{Faker::GameOfThrones.character}",
+    director: Faker::FamilyGuy.character,
+    duration: "#{rand(120..200)} minutes",
+    image_file_name: Faker::Avatar.image
+  },
+  {
+    title: "Friends With Benefits",
+    rating: "R",
+    total_gross: 40400000.00,
+    description: "Justin and Mila crush it in this movie.",
+    released_on: "2009-01-22",
+    cast: "#{Faker::GameOfThrones.character}, #{Faker::GameOfThrones.character}, #{Faker::GameOfThrones.character}",
+    director: Faker::FamilyGuy.character,
+    duration: "#{rand(120..200)} minutes",
+    image_file_name: nil
   }
 ])
