@@ -47,7 +47,7 @@ Movie.create!([
     title: "National Treasure",
     rating: "PG-13",
     total_gross: 300000.00,
-    description: "Pretty Good",
+    description: "Pretty Good... this movie could have done so much more.",
     released_on: "2009-09-23",
     cast: "#{Faker::GameOfThrones.character}, #{Faker::GameOfThrones.character}, #{Faker::GameOfThrones.character}",
     director: Faker::FamilyGuy.character,
@@ -58,7 +58,7 @@ Movie.create!([
     title: "Fired Up!",
     rating: "R",
     total_gross: 900060.00,
-    description: "SO GOOD",
+    description: "SO GOOD. I loved this movie with all my little soul",
     released_on: "2012-02-23",
     cast: "#{Faker::GameOfThrones.character}, #{Faker::GameOfThrones.character}, #{Faker::GameOfThrones.character}",
     director: Faker::FamilyGuy.character,
@@ -69,7 +69,7 @@ Movie.create!([
     title: "Friends With Benefits",
     rating: "R",
     total_gross: 40400000.00,
-    description: "Justin and Mila crush it in this movie.",
+    description: "Justin and Mila crush it in this movie. Seriously.",
     released_on: "2009-01-22",
     cast: "#{Faker::GameOfThrones.character}, #{Faker::GameOfThrones.character}, #{Faker::GameOfThrones.character}",
     director: Faker::FamilyGuy.character,
@@ -77,3 +77,11 @@ Movie.create!([
     image_file_name: nil
   }
 ])
+
+movie = Movie.find_by(title: 'Iron Man')
+movie.reviews.create!(name: "Roger Ebert", stars: 3, comment: "I laughed, I cried, I spilled my popcorn!")
+movie.reviews.create!(name: "Gene Siskel", stars: 5, comment: "I'm a better reviewer than he is.")
+movie.reviews.create!(name: "Peter Travers", stars: 4, comment: "It's been years since a movie superhero was this fierce and this funny.")
+
+movie = Movie.find_by(title: 'Superman')
+movie.reviews.create!(name: "Elvis Mitchell", stars: 5, comment: "It's a bird, it's a plane, it's a blockbuster!")
