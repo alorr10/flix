@@ -28,13 +28,37 @@
     <%= format_total_gross(@movie) %>
   </p>
 
+  <h3>Average Review</h3>
+  <p>
+    <%= format_average_stars(@movie) %>
+  </p>
+
+  <% if @movie.recent_reviews.any? %>
+    <h3>Recent Reviews</h3>
+    <ol id="reviews">
+      <% @movie.recent_reviews.each do |review| %>
+         <li>
+           <span class="review"><%= pluralize(review.stars, 'star') %></span>
+           <span class="user">by <%= review.name %></span>
+           <span class="date"><%= time_ago_in_words(review.created_at) %> ago</span> </br>
+             &quot;<%= review.comment %>&quot;
+         </li>
+      <% end %>
+    </ol>
+    <p>
+      Read all <%= link_to pluralize(@movie.reviews.size, "review"),
+                      movie_reviews_path(@movie) %>
+    </p>
+  <% end %>
+  <h2> Write a review! </h2>
+  <%= render 'reviews/form' %>
+
   <footer>
     <nav>
       <%= link_to 'Edit', edit_movie_path(@movie), class: 'button' %>
       <%= link_to 'Delete', @movie,
                   class: 'button',
                   method: :delete, data: { confirm: 'Are you sure?' } %>
-      <%= link_to "Reviews", movie_reviews_path(@movie), class: 'button' %>
     </nav>
   </footer>
 </article>

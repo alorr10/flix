@@ -63,7 +63,7 @@ RSpec.describe Review, type: :model do
         review.valid?
 
         expect(review.errors[:stars].any?).to eq(true)
-        expect(review.errors[:stars].first).to eq("must be between 1 and 5")
+        expect(review.errors[:stars].first).to eq("must be between 1 and 5 stars")
       end
     end
   end

@@ -1,17 +1,13 @@
-<% if @movie.errors.any? %>
-<section id="errors">
-  <header>
-    <h2>
-      Oops! The <%= @movie.class.name.humanize.downcase %> could not be saved. 
-    </h2>
-    <h3>
-      Please correct the following <%= pluralize(@movie.errors.count, "error") %>:
-    </h3>
-  </header>
-  <ul>
-    <% @movie.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+<% if object.errors.any? %>
+  <div class="errors">
+    <div class="error-explanation">
+      The form contains <%= pluralize(object.errors.count + 1, "error") %>.
+    </div>
+    <ul class='errors-list'>
+    <% object.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
     <% end %>
-  </ul>
-</section>
+    <li> Sorry bro that sucks </li>
+    </ul>
+  </div>
 <% end %>
