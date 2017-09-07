@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :find_movie
-  before_action :find_review, except: [:index]
+  before_action :find_review, except: [:index, :create]
 
   def index
     @reviews = @movie.reviews
