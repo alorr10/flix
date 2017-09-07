@@ -3,4 +3,11 @@
   <span class="user">by <%= review.name %></span>
   <span class="date"><%= time_ago_in_words(review.created_at) %> ago</span>
   </br> &quot;<%= review.comment %>&quot;
+  </br>
+    <%= link_to "Delete review", [review.movie, review],
+                  class: 'button',
+                  method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to "Edit review", edit_movie_review_path(review.movie, review),
+                  class: 'button' %>
+
 </li>

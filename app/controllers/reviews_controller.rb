@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
-  before_action :find_movie, only: [:index, :new, :create]
+  before_action :find_movie
+  before_action :find_review, except: [:index]
 
   def index
     @reviews = @movie.reviews
@@ -20,13 +21,29 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @review = @movie.reviews.find(params[:movie_id][:id])
+  end
+
+  def destroy
+    @review.destroy
+    redirect_to movie_reviews_path(@movie), notice: "Review successfully deleted!"
+  end
+
+  def update
+    if @review.update(review_params)
+      redirect_to @movie, notice: "Review successfully updated!"
+    else
+      render 'edit'
+    end
   end
 
   private
 
     def find_movie
       @movie = Movie.find(params[:movie_id])
+    end
+
+    def find_review
+      @review =  Review.find(params[:id])
     end
 
     def review_params

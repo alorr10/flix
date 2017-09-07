@@ -46,7 +46,7 @@
       <% end %>
     </ol>
     <p>
-      Read all <%= link_to pluralize(@movie.reviews.size, "review"),
+      Read all <%= link_to pluralize(@movie.reviews.size-1, "review"),
                       movie_reviews_path(@movie) %>
     </p>
   <% end %>
