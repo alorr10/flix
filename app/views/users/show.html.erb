@@ -3,10 +3,15 @@
     <h1><%= @user.name %></h1>
     <h2><%= mail_to(@user.email) %></h2>
   </header>
+    <div class='member'>
+      <h6> Member since <%= member_since(@user) %> </h6>
+    </div>
 </article>
 
 <footer>
   <nav>
     <%= link_to 'Edit Account', edit_user_path(@user), class: 'button' %>
+    <%= link_to "Delete Account", @user, class: 'button', method: :delete,
+                                  data: { confirm: 'Are you sure?' } %>
   </nav>
 </footer>

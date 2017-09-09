@@ -35,6 +35,5 @@ RSpec.feature "EditUsers", type: :feature do
 
       expect(page).to have_text('error')
     end
-
   end
 end

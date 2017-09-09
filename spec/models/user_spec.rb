@@ -11,6 +11,32 @@ RSpec.describe User, type: :model do
       expect(user.errors[:name].any?).to eq(true)
     end
 
+    it "requires a username" do
+      user = User.new(username: "")
+
+      user.valid?
+
+      expect(user.errors[:username].any?).to eq(true)
+    end
+
+    it "accepts properly formatted username" do
+      usernames = %w[alec jake123 oops123o]
+      usernames.each do |username|
+        user = User.new(username: username)
+        user.valid?
+        expect(user.errors[:username].any?).to eq(false)
+      end
+    end
+
+    it "rejects improperly formatted usernames" do
+      usernames = %w[@ ^^sdkdfnd $*(dfd)]
+      usernames.each do |username|
+        user = User.new(username: username)
+        user.valid?
+        expect(user.errors[:username].any?).to eq(true)
+      end
+    end
+
     it "requires an email" do
       user = User.new(email: "")
 
