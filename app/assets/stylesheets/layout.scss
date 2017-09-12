@@ -22,21 +22,12 @@ header#page-header {
   }
 
   a.button {
-    margin-left: 10px;
-    border-color: $subdued-color;
+    padding: 20px;
     &:hover {
       background-color: #000;
       color: #fff;
       border-color: #000;
       text-decoration: none;
-    }
-  }
-
-  div.signup {
-    display: flex;
-
-    :hover {
-      color: green;
     }
   }
 
@@ -104,6 +95,7 @@ div#wrapper {
     }
   }
 }
+
 
 aside#sidebar {
   width: 200px;

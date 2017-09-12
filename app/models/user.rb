@@ -16,4 +16,12 @@ class User < ApplicationRecord
                        format: { with: VALID_USERNAME_REGEX },
                        presence: true
 
+
+
+  def self.authenticate(email, password)
+    user = User.find_by(email: email)
+    user && user.authenticate(password)
+  end
+
+
 end

@@ -24,7 +24,7 @@ def user_attributes(overrides = {})
   {
     name: Faker::Name.name,
     email: Faker::Internet.email,
-    username: Faker::Internet.user_name('Alec'),
+    username: Faker::Internet.user_name(Faker::Name.first_name),
     password: "secret",
     password_confirmation: "secret"
   }.merge(overrides)
