@@ -7,6 +7,7 @@ class MoviesController < ApplicationController
 
   def show
     @review = @movie.reviews.new
+    @genres = @movie.genres
   end
 
   def edit
@@ -41,7 +42,7 @@ class MoviesController < ApplicationController
 private
 
   def movie_params
-    params.require(:movie).permit(:title, :description, :rating, :released_on, :total_gross, :cast, :director, :duration, :image)
+    params.require(:movie).permit(:title, :description, :rating, :released_on, :total_gross, :cast, :director, :duration, :image, genre_ids: [])
   end
 
   def find_movie

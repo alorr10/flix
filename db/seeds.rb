@@ -90,7 +90,16 @@ User.create!(name: "Jake Paul", username: "jakepaul", email: "jakepaul@gmail.com
 
 User.create!(name: "Alec Lorraine", username: "alec", email: "alec@gmail.com", password: "secret", password_confirmation: "secret")
 
-
+Genre.create!(name: "Action")
+Genre.create!(name: "Comedy")
+Genre.create!(name: "Drama")
+Genre.create!(name: "Romance")
+Genre.create!(name: "Thriller")
+Genre.create!(name: "Fantasy")
+Genre.create!(name: "Documentary")
+Genre.create!(name: "Adventure")
+Genre.create!(name: "Animation")
+Genre.create!(name: "Sci-Fi")
 
 
 
