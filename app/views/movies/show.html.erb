@@ -33,13 +33,34 @@
     <%= format_average_stars(@movie) %>
   </p>
 
+  <% if current_user %>
+    <% if @current_favorite %>
+      <%= button_to "Unfave", movie_favorite_path(@movie, @current_favorite), method: :delete %>
+    <% else %>
+      <%= button_to "Fave", movie_favorites_path(@movie) %>
+    <% end %>
+  <% end %>
+
+  <h3> <%= pluralize(@fans.size, 'Fan') %>  </h3>
+  <% if @fans.any? %>
+    <h3>Fans</h3>
+    <ul>
+      <% @fans.each do |user| %>
+        <li>
+          <%= link_to user.name, user %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+
+
   <% if @movie.recent_reviews.any? %>
     <h3>Recent Reviews</h3>
     <ol id="reviews">
       <% @movie.recent_reviews.each do |review| %>
          <li>
            <span class="review"><%= pluralize(review.stars, 'star') %></span>
-           <span class="user">by <%= review.name %></span>
+           <span class="user">by <%= link_to review.user.name, review.user %> </span>
            <span class="date"><%= time_ago_in_words(review.created_at) %> ago</span> </br>
              &quot;<%= review.comment %>&quot;
          </li>

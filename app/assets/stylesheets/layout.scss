@@ -8,21 +8,12 @@ body {
 
 header#page-header {
   background-color: $secondary-background-color;
-  padding: 0px 25px;
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
 
-  h1 a {
-    height: 0px;
-    padding-top: 60px;
-    display: block;
-    font-family: "Esteban", sans-serif;
-    color: #fff;
-    text-decoration: none;
-    overflow: hidden;
-    /*background: image-url("logo.png") no-repeat 0 0;*/
-  }
 
   a.button {
-    padding: 20px;
     &:hover {
       background-color: #000;
       color: #fff;
@@ -36,28 +27,32 @@ header#page-header {
     margin: 0 auto;
     width: 960px;
     position: relative;
-    text-shadow: #000 0 0 2px;
 
     h1 {
       margin: 0;
       color: #fff;
       line-height: 60px;
     }
+  }
 
-    nav {
-      margin: 0;
-      position: absolute;
-      color: $subdued-color;
-      top: 0;
-      right: 0;
-      height: 60px;
-      a {
-        color: $secondary-link-color;
-        text-decoration: none;
+  nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+    position: absolute;
+    padding: 15px 15px 33px 15px;
+    color: $subdued-color;
+    top: 0;
+    right: 0;
+    height: 60px;
+    a {
+      padding: 5px 0;
+      color: $secondary-link-color;
+      text-decoration: none;
 
-        &:hover {
-          text-decoration: underline;
-        }
+      &:hover {
+        text-decoration: underline;
       }
     }
   }
@@ -133,6 +128,12 @@ aside#sidebar {
         &.create-movie a {
           display: block;
           background: image-url("add.png") no-repeat 10px 8px;
+          padding-left: 35px;
+        }
+
+        &.all-users a {
+          display: block;
+          background: image-url("arrow.png") no-repeat 10px 8px;
           padding-left: 35px;
         }
 

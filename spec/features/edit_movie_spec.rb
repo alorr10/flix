@@ -2,8 +2,15 @@ require 'rails_helper'
 
 describe "Editing a movie" do
 
+  before do
+    user = User.create!(user_attributes)
+    sign_in(user)
+  end
+
   it "updates the movie and shows the movie's updated details" do
     movie = Movie.create(movie_attributes)
+    user = User.create!(user_attributes)
+    sign_in(user)
 
     visit movie_url(movie)
 
@@ -26,6 +33,8 @@ describe "Editing a movie" do
 
   it "does not update the movie if it's invalid" do
     movie = Movie.create(movie_attributes)
+    user = User.create!(user_attributes)
+    sign_in(user)
 
     visit edit_movie_url(movie)
 

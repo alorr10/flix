@@ -2,12 +2,17 @@ require 'rails_helper'
 
 RSpec.feature "CreateReviews", type: :feature do
   describe "Creating a new review" do
+
+    before do
+      @user = User.create!(user_attributes)
+      sign_in(@user)
+    end
+
     it "saves the review" do
       movie = Movie.create(movie_attributes)
 
       visit movie_url(movie)
 
-      fill_in "Name", with: "Roger Ebert"
       choose "review_stars_3"
       fill_in "Comment", with: "I laughed, I cried, I spilled my popcorn!"
 

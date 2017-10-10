@@ -4,28 +4,22 @@ RSpec.describe Review, type: :model do
   describe "A review" do
     it "belongs to a movie" do
       movie = Movie.create(movie_attributes)
+      user = User.create(user_attributes)
 
-      review = movie.reviews.new(review_attributes)
+      review = movie.reviews.new(review_attributes(user_id: user.id))
 
       expect(review.movie).to eq(movie)
     end
 
     it "with example attributes is valid" do
       movie = Movie.create(movie_attributes)
+      user = User.create(user_attributes)
 
       review = Review.new(review_attributes)
 
       review.movie = movie
 
       expect(review.valid?).to eq(true)
-    end
-
-    it "requires a name" do
-      review = Review.new(name: "")
-
-      review.valid? # populates errors
-
-      expect(review.errors[:name].any?).to eq(true)
     end
 
     it "requires a comment" do

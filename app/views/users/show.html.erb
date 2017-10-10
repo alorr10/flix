@@ -2,16 +2,32 @@
   <header>
     <h1><%= @user.name %></h1>
     <h2><%= mail_to(@user.email) %></h2>
+    <% if @user.reviews.any? %>
+      <h3> Reviews </h3>
+        <% @user.reviews.each do |r| %>
+          <%= render r %>
+        <% end %>
+    <% end %>
+    <% if @favorites.any? %>
+      <h3> Favorite Movies</h3>
+        <% @favorites.each do |f| %>
+          <%= link_to f.title, f %>
+        <% end %>
+    <% end %>
+
+
   </header>
     <div class='member'>
       <h6> Member since <%= member_since(@user) %> </h6>
-    </div>
+  </div>
 </article>
 
 <footer>
   <nav>
-    <%= link_to 'Edit Account', edit_user_path(@user), class: 'button' %>
-    <%= link_to "Delete Account", @user, class: 'button', method: :delete,
+    <% if current_user?(@user) %>
+      <%= link_to 'Edit Account', edit_user_path(@user), class: 'button' %>
+      <%= link_to "Delete Account", @user, class: 'button', method: :delete,
                                   data: { confirm: 'Are you sure?' } %>
+    <% end %>
   </nav>
 </footer>

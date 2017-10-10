@@ -1,5 +1,10 @@
 class MoviesController < ApplicationController
+
   before_action :find_movie, only: [:show, :edit, :update, :destroy]
+
+  before_action :require_signin, except: [:index, :show]
+
+  before_action :require_admin, except: [:index, :show]
 
   def index
     @movies = Movie.released
@@ -7,6 +12,8 @@ class MoviesController < ApplicationController
 
   def show
     @review = @movie.reviews.new
+    @fans = @movie.fans
+    @current_favorite = current_user.favorites.find_by(movie_id: @movie.id) if current_user
   end
 
   def edit
