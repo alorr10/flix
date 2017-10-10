@@ -14,9 +14,9 @@ end
 
 def review_attributes(overrides = {})
   {
-    name: "Roger Ebert",
     stars: 3,
-    comment: "I laughed, I cried, I spilled my popcorn!"
+    comment: "I laughed, I cried, I spilled my popcorn!",
+    user_id: 1
   }.merge(overrides)
 end
 
@@ -26,6 +26,7 @@ def user_attributes(overrides = {})
     email: Faker::Internet.email,
     username: Faker::Internet.user_name(Faker::Name.first_name),
     password: "secret",
-    password_confirmation: "secret"
+    password_confirmation: "secret",
+    admin: true
   }.merge(overrides)
 end

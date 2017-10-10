@@ -79,16 +79,11 @@ Movie.create!([
 ])
 
 movie = Movie.find_by(title: 'Iron Man')
-movie.reviews.create!(name: "Roger Ebert", stars: 3, comment: "I laughed, I cried, I spilled my popcorn!")
-movie.reviews.create!(name: "Gene Siskel", stars: 5, comment: "I'm a better reviewer than he is.")
-movie.reviews.create!(name: "Peter Travers", stars: 4, comment: "It's been years since a movie superhero was this fierce and this funny.")
-
 movie = Movie.find_by(title: 'Superman')
-movie.reviews.create!(name: "Elvis Mitchell", stars: 5, comment: "It's a bird, it's a plane, it's a blockbuster!")
 
-User.create!(name: "Jake Paul", username: "jakepaul", email: "jakepaul@gmail.com", password: "secret", password_confirmation: "secret")
+roger =User.create!(name: "Jake Paul", username: "jakepaul", email: "jakepaul@gmail.com", password: "secret", password_confirmation: "secret")
+gene = User.create!(name: "Alec Lorraine", username: "alec", email: "alec@gmail.com", password: "secret", password_confirmation: "secret")
 
-User.create!(name: "Alec Lorraine", username: "alec", email: "alec@gmail.com", password: "secret", password_confirmation: "secret")
 
 Genre.create!(name: "Action")
 Genre.create!(name: "Comedy")
@@ -100,6 +95,14 @@ Genre.create!(name: "Documentary")
 Genre.create!(name: "Adventure")
 Genre.create!(name: "Animation")
 Genre.create!(name: "Sci-Fi")
+
+movie.reviews.create!(user: roger, stars: 5, comment: "It's a bird, it's a plane, it's a blockbuster!")
+movie.reviews.create!(user: roger, stars: 3, comment: "I laughed, I cried, I spilled my popcorn!")
+movie.reviews.create!(user: gene, stars: 5, comment: "I'm a better reviewer than he is.")
+movie.reviews.create!(user: gene, stars: 4, comment: "It's been years since a movie superhero was this fierce and this funny.")
+movie.fans << roger
+movie.fans << gene
+
 
 
 

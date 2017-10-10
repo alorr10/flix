@@ -1,11 +1,16 @@
 <aside id="sidebar">
   <nav>
     <ul>
-      <li class="all-movies">
-        <%= link_to 'All Movies', movies_path, class: 'button' %>
-      </li>
-      <li class="create-movie">
-        <%= link_to 'Add New Movie', new_movie_path, class: 'button' %>
+      <% if current_user_admin? %>
+        <li class="all-movies">
+          <%= link_to 'All Movies', movies_path, class: 'button' %>
+        </li>
+        <li class="create-movie">
+          <%= link_to 'Add New Movie', new_movie_path, class: 'button' %>
+        </li>
+      <% end %>
+      <li class="all-users">
+        <%= link_to 'Users', users_path, class: 'button' %>
       </li>
     </ul>
   </nav>
